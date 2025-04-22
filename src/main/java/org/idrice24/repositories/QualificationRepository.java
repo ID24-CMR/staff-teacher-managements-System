@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository 
 public interface QualificationRepository extends CrudRepository<Qualification, Long> {
-
+    Qualification findById(long id);
 }
