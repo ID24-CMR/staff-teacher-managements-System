@@ -3,13 +3,8 @@ package org.idrice24.controllers;
 import java.sql.Date;
 
 import javax.validation.Valid;
-
-import org.idrice24.entities.Department;
 import org.idrice24.entities.Teachers;
 import org.idrice24.repositories.TeacherRepository;
-import org.idrice24.services.ClasseService;
-import org.idrice24.services.CourseService;
-import org.idrice24.services.DepartmentService;
 import org.idrice24.services.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,25 +20,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TeacherController {
 
     private final TeacherService teacherService;
-    private final CourseService courseService;
-    private ClasseService classeService;
     private TeacherRepository teacherRepository;
-    private DepartmentService departmentService;
     
         @Autowired
-        public TeacherController(TeacherService teacherService, CourseService courseService, ClasseService classeService, TeacherRepository teacherRepository, DepartmentService departmentService){
-            this.departmentService = departmentService;
+        public TeacherController(TeacherService teacherService,  TeacherRepository teacherRepository){
         this.teacherService = teacherService;
-        this.courseService = courseService;
-        this.classeService = classeService;
         this.teacherRepository = teacherRepository;
     }
 
     @GetMapping("teacher/signup")
     public String ViewTeacher(Model model, Teachers teachers){
-        model.addAttribute("courses", courseService.listAllCourses());
-        model.addAttribute("classes", classeService.getAllClasse());
-        model.addAttribute("departments", departmentService.listAllDepartment());
         return "add-teacher";
     }
 
@@ -69,8 +55,6 @@ public class TeacherController {
         teacher.setSui(s);
         teacherService.saveTeacher(teacher);
         model.addAttribute("teachers", teacherService.getAllTeachers());
-        model.addAttribute("classes", classeService.getAllClasse());
-        model.addAttribute("courses", courseService.listAllCourses());
         return "teachers";
     }
 
