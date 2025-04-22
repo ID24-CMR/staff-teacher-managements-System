@@ -19,7 +19,7 @@ public class Salary {
     private long salaryId;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name ="depId", referencedColumnName ="id")
+    @JoinColumn(name ="depId", referencedColumnName ="depId")
     private Department department;
 
     @Column(name="amount")
