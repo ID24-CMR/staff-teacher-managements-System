@@ -1,5 +1,12 @@
 package org.idrice24.entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name="employee")
 public class Employee{
@@ -11,7 +18,7 @@ public class Employee{
 	private String fname;
 
 	@Column(name="lname")
-	private String fname;
+	private String lname;
 
 	@Column(name="gender")
 	private String gender;
