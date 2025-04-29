@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class SalaryController {
     private SalaryService salaryService;
     private DepartmentService departmentService;
+
     @Autowired
     public void setSalary(SalaryService salaryService, DepartmentService departmentService){
         this.salaryService = salaryService;
@@ -26,7 +27,8 @@ public class SalaryController {
     }
 
     @GetMapping("show")
-    public String getSalary(Model model, Iterable<Department> dept){
+    public String getSalary(Model model){
+        Iterable<Department> dept;
         dept = departmentService.getAllDepartmen();
         model.addAttribute("depts", dept);
         model.addAttribute("salary", model);

@@ -8,14 +8,14 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Department")
+@Table(name="department")
 public class Department{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long depId;
+	private long dep_id;
 
-	@Column(name="depName")
-	private String depName;
+	@Column(name="dep_name")
+	private String dep_name;
 
 	@Column(name="description")
 	private String description;
