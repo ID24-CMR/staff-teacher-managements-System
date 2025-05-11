@@ -37,7 +37,7 @@ public class PayrollController {
 
     @GetMapping("/show")
     public String showPayroll(Model model){
-        model.addAttribute("add-payroll", model);
+        model.addAttribute("payrolls", model);
         Iterable<Payroll> payroll = payrollService.getAllPayroll();
         Iterable<Employee> employee = employeeService.getAllEmployee();
         Iterable<Department> department = departmentService.getAllDepartmen();
