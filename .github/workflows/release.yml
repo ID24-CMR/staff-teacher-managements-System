@@ -1,0 +1,34 @@
+name: Auto Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '17'
+    - name: Build with Maven
+      run: mvn clean package
+    - name: Get latest commit SHA
+      id: vars
+      run: echo "TAG_NAME0v1-$(date '%Y%m%d')-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+    - name: Create Github Release
+      uses: softüprops/action-gh-release@v2
+      with:
+        tag_name: ${{ env.TAG_NAME }}
+        name: "Auto Release ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload JAR to Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: target/*.jar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
