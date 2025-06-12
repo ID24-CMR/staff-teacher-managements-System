@@ -58,4 +58,8 @@ public String viewDepartment(@PathVariable("id") long id, Model model, Departmen
     return "department";
 }
 
+    @GetMapping("delete")
+    public String deleteDepartment(){
+        return "department";
+
 }
