@@ -21,7 +21,7 @@ jobs:
       id: vars
       run: echo "TAG_NAME0v1-$(date '%Y%m%d')-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Create Github Release
-      uses: softüprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v2
       with:
         tag_name: ${{ env.TAG_NAME }}
         name: "Auto Release ${{ secrets.GITHUB_TOKEN }}"
