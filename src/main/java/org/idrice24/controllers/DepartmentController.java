@@ -61,5 +61,5 @@ public String viewDepartment(@PathVariable("id") long id, Model model, Departmen
     @GetMapping("delete")
     public String deleteDepartment(){
         return "department";
-
+    }
 }
