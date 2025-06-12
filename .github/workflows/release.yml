@@ -24,7 +24,7 @@ jobs:
       uses: softüprops/action-gh-release@v2
       with:
         tag_name: ${{ env.TAG_NAME }}
-        name: "Auto Release ${{ secrets.GITHUB_TOKEN }}
+        name: "Auto Release ${{ secrets.GITHUB_TOKEN }}"
     - name: Upload JAR to Release
       uses: softprops/action-gh-release@v2
       with:
