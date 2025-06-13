@@ -52,9 +52,9 @@ public class EmployeeController {
 
     @GetMapping("view/employee/{id}")
     public String viewEmployee(@PathVariable("id") long id, Model model, Employee employee){
-        employee = employeeService.findById(id);
+        employees = employeeService.findById(id);
 
-        model.addAttribute("employee", employee);
+        model.addAttribute("employee", employees);
 
         return "employeeview";
     }
