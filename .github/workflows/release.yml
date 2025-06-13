@@ -10,6 +10,8 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
     - name: Set up Java
       uses: actions/setup-java@v4
       with:
@@ -19,7 +21,7 @@ jobs:
       run: mvn clean package
     - name: Get latest commit SHA
       id: vars
-      run: echo "TAG_NAME=v1-$(date '%Y%m%d')-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      run: echo "TAG_NAME=v0.0.0-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     - name: Create Github Release
       uses: softprops/action-gh-release@v2
       with:
