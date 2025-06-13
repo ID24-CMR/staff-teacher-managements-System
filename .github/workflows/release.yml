@@ -45,6 +45,11 @@ jobs:
         run: |
           git tag $new_tag
           git push origin $new_tag
-          
+
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Git Release
+        uses: softprops/action-gh-release@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
