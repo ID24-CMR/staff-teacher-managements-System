@@ -45,5 +45,6 @@ jobs:
         run: |
           git tag $new_tag
           git push origin $new_tag
+          
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
