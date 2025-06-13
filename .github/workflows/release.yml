@@ -1,40 +1,45 @@
 name: Auto Release
+
 on:
   push:
     branches:
       - main
+
 jobs:
-  build-and-release:
+  release:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - name: Set Up Git
-      run: |
-        git config user.name "github-actions"
-        git config user.email "idrice.tsafouet@yahoo.com"
-    - name: Set up Java
-      uses: actions/setup-java@v4
-      with:
-        distribution: 'temurin'
-        java-version: '17'
-    - name: Build with Maven
-      run: mvn clean package
-    - name: Get latest commit SHA
-      id: vars
-      run: echo "TAG_NAME=v0.0.0-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
-    - name: Create Github Release
-      uses: softprops/action-gh-release@v2
-      with:
-        tag_name: ${{ env.TAG_NAME }}
-        name: "Auto Release ${{ secrets.GITHUB_TOKEN }}"
-    - name: Upload JAR to Release
-      uses: softprops/action-gh-release@v2
-      with:
-        files: target/*.jar
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Important to get all tags
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
+      - name: Get latest tag
+        id: get_tag
+        run: |
+          tag=$(git tag --sort=-v:refname | grep '^v' | head -n 1)
+          echo "Latest tag: $tag"
+          if [ -z "$tag" ]; then
+            tag="v0.0.0"
+          fi
+          echo "tag=$tag" >> $GITHUB_ENV
+
+      - name: Bump patch version
+        id: bump_version
+        run: |
+          IFS='.' read -r major minor patch <<< "${tag#v}"
+          patch=$((patch + 1))
+          new_tag="v$major.$minor.$patch"
+          echo "New tag: $new_tag"
+          echo "new_tag=$new_tag" >> $GITHUB_ENV
+
+      - name: Create Git tag
+        run: |
+          git tag $new_tag
+          git push origin $new_tag
