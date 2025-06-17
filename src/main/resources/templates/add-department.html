@@ -4,8 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>department</title>
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+<link rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+
 </head>
 <body>
-    add-department!!!!!!!!!!!!!!!!!!!!!!!!!
+    <div class="container my-5">
+    <h3> Add new Employee</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-12">
+
+                    <form action="#" th:action="@{/employees/add/employee}"
+                        th:object="${employees}" method="post">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="dep_name" class="col-form-label">Dept Name</label> <input
+                                    type="text" th:field="*{dep_name}" class="form-control" id="dep_name"
+                                    placeholder="Dept Name"> <span
+                                    th:if="${#fields.hasErrors('dep_name')}" th:errors="*{dep_name}"
+                                    class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="description" class="col-form-label">Description</label> <input
+                                    type="text" th:field="*{description}" class="form-control" id="description"
+                                    placeholder="Description"> <span
+                                    th:if="${#fields.hasErrors('description')}" th:errors="*{description}"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group col-md-6">
+                                <label for="salary" class="col-form-label">Salary</label> <input
+                                    type="text" th:field="*{salary}" class="form-control"
+                                    id="salary" placeholder="Dept Salary"> <span
+                                    th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"
+                                    class="text-danger"></span>
+                            </div>
+
+                            
+
+                            <div class="form-group col-md-6">
+                                <label for="yexperience" class="col-form-label">Yexperience</label> <input
+                                    type="text" th:field="*{yexperience}" class="form-control"
+                                    id="yexperience" placeholder="yexperience"> <span
+                                    th:if="${#fields.hasErrors('yexperience')}" th:errors="*{yexperience}"
+                                    class="text-danger"></span>
+                            </div>
+
+                            
+                            <p>
+                            <div class="form-group col-md-6">
+                                <input type="submit" class="btn btn-primary" value="Add Department">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <a href="http://localhost:8080/employees/employee/show/list"><input type="reset" class="btn btn-secondary" value="Cancel"></a>
+                            </div>
+
+                            <div class="form-group col-md-8"></div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

@@ -30,4 +30,44 @@ public class Salary {
 
     @Column(name="bonus")
     private double bonus;
+
+    public long getSalaryId() {
+        return salaryId;
+    }
+
+    public void setSalaryId(long salaryId) {
+        this.salaryId = salaryId;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public int getAnual() {
+        return anual;
+    }
+
+    public void setAnual(int anual) {
+        this.anual = anual;
+    }
+
+    public double getBonus() {
+        return bonus;
+    }
+
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
+    }
 }

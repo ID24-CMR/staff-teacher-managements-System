@@ -23,6 +23,70 @@ public class Payroll{
 	@JoinColumn(name="empId", referencedColumnName = "empId")
 	private Employee employee;
 
+	public long getPayId() {
+		return payId;
+	}
+
+	public void setPayId(long payId) {
+		this.payId = payId;
+	}
+
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public Salary getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Salary salary) {
+		this.salary = salary;
+	}
+
+	public Leave getLeave() {
+		return leave;
+	}
+
+	public void setLeave(Leave leave) {
+		this.leave = leave;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getReport() {
+		return report;
+	}
+
+	public void setReport(String report) {
+		this.report = report;
+	}
+
+	public Double getTtamount() {
+		return ttamount;
+	}
+
+	public void setTtamount(Double ttamount) {
+		this.ttamount = ttamount;
+	}
+
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="dep_id", referencedColumnName = "dep_id")
 	private Department department;

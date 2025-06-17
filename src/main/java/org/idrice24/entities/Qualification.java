@@ -32,4 +32,44 @@ public class Qualification {
     @Column(name="datein")
     private Date datein;
 
+    public long getQualId() {
+        return qualId;
+    }
+
+    public void setQualId(long qualId) {
+        this.qualId = qualId;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public String getRequirement() {
+        return requirement;
+    }
+
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
+
+    public Date getDatein() {
+        return datein;
+    }
+
+    public void setDatein(Date datein) {
+        this.datein = datein;
+    }
+
 }

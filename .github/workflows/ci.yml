@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     -  name: Checkout code
-       uses:  actions/chechout@v3
+       uses: actions/chechout@v4
        
     -  name: Set up JDK 17
-       uses: actions/checkout@v3
+       uses: actions/checkout@v4
        with:
-         java-version: '17'
-         distribution: 'temurin'
+        java-version: '17'
+        distribution: 'temurin'
 
     -  name: Build with Maven
        run: mvn clean install
