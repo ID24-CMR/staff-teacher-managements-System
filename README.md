@@ -15,3 +15,19 @@
 - [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
+
+## Features
+- Add, edit, delete staff members
+- Assign departments and roles
+- Track attendance and leaves
+- Admin dashboard with analytics
+- Secure login/logout for users
+
+## Tech Stack
+- **Backend:** Java Spring Boot
+- **Frontend:** HTML, CSS, JavaScript
+- **Database:** MySql
+- **Tools:** Maven, Git, Github Actions (CI/CD)
+
+## Getting Started
+Follow these instructions to set up the project locally.
