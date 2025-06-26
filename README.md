@@ -31,3 +31,27 @@
 
 ## Getting Started
 Follow these instructions to set up the project locally.
+  # Installation
+  1. Clone the repository:
+     ´´´´bash
+     git clone
+     https://github.com/ID24-CMR/staff-teacher-managements-System.git
+  2. cd staff-teacher-management-system
+  3. mvn clean install
+  4. mvn spring-boot:run
+## Usage
+Explain how to use the system ( admin login, role, etc)
+- Visit: `http://localhost:8080`
+- Default Admin Login:
+  - UserName: *********
+  - Password: *********
+
+## Screenshots or Demo
+![Dashboard](screenshots/dashboard.png)
+![Staff List](screenshots/staff-list.png)
+
+## Contibuting
+Contributions are welcome! Please fork the repo and submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
