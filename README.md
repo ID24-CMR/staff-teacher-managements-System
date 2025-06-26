@@ -7,14 +7,14 @@
 ![GitHub Release Date](https://img.shields.io/github/release-pre/ID24-CMR/staff-teacher-managements-System)
 
 ## Table of contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](getting-started)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Screenshots](#screenshots)
-- [Contributing](#contributing)
-- [License](#license)
+- 📦 [Features](#features)
+- 🚀 [Tech Stack](#tech-stack)
+- 🛠️ [Getting Started](getting-started)
+- 🧪 [Installation](#installation)
+- 🎠 [Usage](#usage)
+- 🖼️ [Screenshots](#screenshots)
+- 🤝 [Contributing](#contributing)
+- 📄 [License](#license)
 
 ## Features
 - Add, edit, delete staff members
