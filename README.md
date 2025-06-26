@@ -5,3 +5,13 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/ID24-CMR/staff-teacher-managements-System)
 ![GitHub Release Date](https://img.shields.io/github/release-date-pre/ID24-CMR/staff-teacher-managements-System)
 ![GitHub Release Date](https://img.shields.io/github/release-pre/ID24-CMR/staff-teacher-managements-System)
+
+## Table of contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [License](#license)
