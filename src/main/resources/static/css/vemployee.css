@@ -1,0 +1,53 @@
+
+.sidebar{
+	float: left;
+	width: 30%;
+	height: 800px;
+	background-color: none;
+	padding: 20px;
+}
+
+.sidebar ul {
+	list-style-type: none;
+	padding: 25px;
+
+}
+
+
+.article{
+	float: left;
+	padding: 20px;
+	width: 64%;
+	background-color: none;
+	height: 800px;
+}
+
+.article ul {
+	list-style-type: none;
+	padding: 5px;
+}
+
+.article ul li {
+	border: 1px solid #eee;
+	padding: 5px;
+	margin: 15px;
+}
+
+table {
+	margin: 20px;
+}
+
+table tr td {
+	padding: 15px;
+	border-bottom: 1px solid #eee;
+	width: 38%;
+
+}
+
+th {
+	padding: 10px;
+}
+a {
+	font-style: none;
+	text-decoration-style: none;
+}
