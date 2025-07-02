@@ -14,6 +14,6 @@ public interface EmployeeService {
     void deleteEmployee(Employee employee);
     void deleteEmployeeById(long id);
 
-    Employee saveImage(MultipartFile file) throws IOException;
-    Path getImagePath(long id);
+    // Employee saveImage(MultipartFile file) throws IOException;
+    // Path getImagePath(long id);
 }

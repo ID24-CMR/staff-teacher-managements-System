@@ -2,6 +2,7 @@ package org.idrice24.controllers;
 
 import org.idrice24.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.*;
@@ -12,17 +13,13 @@ import org.idrice24.entities.Employee;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.*;
+import java.io.File;
 
 import javax.validation.Valid;
 
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
@@ -50,31 +47,63 @@ public class EmployeeController {
         return "employee";
     }
 
+
+    @Value("${upload.dir}")
+    private String uploadDir;
+
     @PostMapping("add/employee")
-    public String newEmployee(@RequestParam("file") MultipartFile file, @Valid Employee employee, BindingResult result, Model model) throws IOException{
-        if(result.hasErrors()){
-            return "add-employee";
+    public String newEmployee(@RequestParam("profile") MultipartFile file,
+    
+    @RequestParam("fname") String fname,
+    @RequestParam("lname") String lname,
+    @RequestParam("age") int age, @Valid Employee employee, BindingResult result, Model model) throws IOException{
+
+        Employee employees = new Employee();
+        // if(result.hasErrors()){
+        //     model.addAttribute("employees", employees);
+        //     return "add-employee";
+        // }
+        
+        employee.setFname(fname);
+        employee.setLname(lname);
+        employee.setAge(age);
+        employee.setProfile(file.getBytes());
+
+        // //save file in a local folder (uploads)
+        // uploadDir = "uploads";
+        // File directory = new File(uploadDir);
+        // if(!directory.exists()){
+        //     directory.mkdirs();
+        // }
+
+        // String filePath = uploadDir + File.separator + file.getOriginalFilename();
+        // File destination = new File(filePath);
+        // file.transferTo(destination);
+
+        if(file.isEmpty()){
+            System.out.println("this file is empty "+file.getOriginalFilename());
+        }else{
+            employeeService.saveEmployee(employee);
         }
-        employeeService.saveEmployee(employee);
-        employeeService.saveImage(file);
-        Iterable<Employee> employees = employeeService.getAllEmployee();
+        
+
+
         model.addAttribute("employees", employees);
-        return "employee";
+        return "redirect:/employee/show/list";
     }
 
-    @GetMapping("view/employee/{id}")
-    public String viewEmployee(@PathVariable("id") long id, Model model, Employee employees) throws MalformedURLException{
-        employees = employeeService.findById(id);
-        Path imagePath = employeeService.getImagePath(id);
-        if(imagePath == null || ! Files.exists(imagePath)){
-            return ResponseEntityExceptionHandler.PAGE_NOT_FOUND_LOG_CATEGORY;
-        }
-        Resource resource = new UrlResource(imagePath.toUri());
-        ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(resource);
+    @GetMapping("view/{empId}")
+    public String viewEmployee(@PathVariable("empId") Long empId, Model model, Employee employees) throws MalformedURLException{
+         employees = employeeService.findById(empId);
+        
+            byte[] imageDate = employees.getProfile();
 
-        model.addAttribute("employee", employees);
 
-        return "employeeview";
+    
+         model.addAttribute("employee", employees);
+        
+
+        return "viewEmployee";
     }
 
 }

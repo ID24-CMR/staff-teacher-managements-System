@@ -22,8 +22,8 @@
             <div class="card-body">
                 <div class="col-md-12">
 
-                    <form action="#" th:action="@{/employees/add/employee}"
-                        th:object="${employees}" method="post">
+                    <form action="#" th:action="@{/employee/add/employee}"
+                        th:object="${employees}" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="fname" class="col-form-label">First Name</label> <input
@@ -89,7 +89,7 @@
                             <div class="form-group col-md-6">
                                 <label for="image" class="col-md-6 control-label">Upload Profile</label>
                                 <div class="col-md-6">
-                                    <input type="file" name="picture" id="picture" th:field="*{picture}">
+                                    <input type="file" name="file" id="profile" th:field="*{profile}">
                                 </div>
                             </div>
                             <p>

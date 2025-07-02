@@ -47,26 +47,26 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.deleteById(id);
     }
 
-    @Value("${upload.dir}")
-    private String uploadDir;
+    // @Value("${upload.dir}")
+    // private String uploadDir;
 
-    public  Employee saveImage(MultipartFile file) throws IOException {
-       // String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
-        Path path = Paths.get(uploadDir);
+    // public  Employee saveImage(MultipartFile file) throws IOException {
+    //    // String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
+    //     Path path = Paths.get(uploadDir);
 
-        Files.createDirectories(path.getParent());
-        Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+    //     Files.createDirectories(path.getParent());
+    //     Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
 
-        Employee image = new Employee();
-        image.setFilePath(path.toString());
+    //     Employee image = new Employee();
+    //     image.setFilePath(path);
 
-        return employeeRepository.save(image);
-    }
+    //     return employeeRepository.save(image);
+    // }
 
-    /*getting the image path */
-    public Path getImagePath(long id){
-        Employee image = employeeRepository.findById(id);
-        return image != null ? Paths.get(image.getFilePath()) : null;
-    }
+    // /*getting the image path */
+    // public Path getImagePath(long id){
+    //     Employee image = employeeRepository.findById(id);
+    //     return image != null ? Paths.get(image.getFilePath()) : null;
+    // }
 
 }

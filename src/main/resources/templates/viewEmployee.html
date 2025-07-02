@@ -5,17 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>view employee</title>
 	<link rel="stylesheet" type="text/css" href="../static/css/vemployee.css">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/vemployee.css}">
 </head>
 <body>
 	<div class="container">
 		<div class="sidebar">
-			<ul>
-				<li><img src="#"></li>
-				<li>Employee Name and Position</li>
+			<ul th:each="emplo : ${employee}">
+				<li><img src="[[${emplo.profile}]]"></li>
+				<li><h3>[[${emplo.fname}]] &nbsp;&nbsp; [[${emplo.lname}]]</h3></li>
 				<li>Message button</li>
 				<hr>
 				<h3>Professional Info</h3>
-				<li>idrice@yahoo.com</li>
+				<li>[[${emplo.empEmail}]]</li>
 				<li>679260307</li>
 				<li>Job ID <b>123456</b></li>
 				<li>Employee Status <b>Full Time</b></li>
@@ -26,9 +27,9 @@
 				<hr>
 				<h3>Other Info</h3>
 				<li>DOB 11 Sep, 1995</li>
-				<li>Gender Male</li>
+				<li>[[${emplo.gender}]]</li>
 				<li>Blood Group B</li>
-				<li>Address</li>
+				<li>[[${emplo.contactAdd}]]</li>
 				
 			</ul>
 		</div>

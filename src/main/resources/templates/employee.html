@@ -59,13 +59,13 @@
                                         <td th:text="${employee.contactAdd}"></td>
                                         <td th:text="${employee.empEmail}"></td>
                                         <td th:text="${employee.emplPass}"></td>
-                                        <td><a th:href="@{/employees/view/{id}(id=${employee.id})}"
+                                        <td><a th:href="@{/employee/view/{id}(id=${employee.empId})}"
                                             class="btn btn-success">
                                             <i class="fas fa-user ml-2"></i></a></td>
-                                        <td><a th:href="@{/employees/edit/{id}(id=${employee.id})}"
+                                        <td><a th:href="@{/employee/edit/{id}(id=${employee.empId})}"
                                             class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
                                         <td><a
-                                            th:href="@{/employees/delete/{id}(id=${employee.id})}"
+                                            th:href="@{/employee/delete/{id}(id=${employee.empId})}"
                                             class="btn btn-danger"><i class="fas fa-user-times ml-2"></i></a></td>
                                     </tr>
                                 </tbody>

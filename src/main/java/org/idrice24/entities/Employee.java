@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name="employee")
 public class Employee{
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long empId;
 
 	@Column(name="fname")
@@ -26,6 +26,11 @@ public class Employee{
 
 	@Column(name="age")
 	private int age;
+
+
+	@Column(name="profile")
+	private byte[] profile;
+
 
 	public Employee() {
 	}
@@ -68,7 +73,7 @@ public class Employee{
 		this.emplPass = emplPass;
 	}
 
-	public void setProfile(String profile) {
+	public void setProfile(byte[] profile) {
 		this.profile = profile;
 	}
 
@@ -107,18 +112,16 @@ public class Employee{
 		return emplPass;
 	}
 
-	public String getProfile() {
+	public byte[] getProfile() {
 		return profile;
 	}
 
-	@Column(name="profile")
-	private String profile;
 
-    public String getFilePath() {
+    public byte[] getFilePath() {
         return profile; 
     }
 
-    public void setFilePath(String profile) {
+    public void setFilePath(byte[] profile) {
 		this.profile = profile;
 	}
 }

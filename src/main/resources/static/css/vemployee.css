@@ -1,4 +1,11 @@
+body{
+	background-color: #f2f2f2;
+	font-family: Arial, sans-serif;
+}
 
+h1, h2, h3, h4, h5, h6 {
+	color: darkblue;
+}
 .sidebar{
 	float: left;
 	width: 30%;
@@ -11,6 +18,10 @@
 	list-style-type: none;
 	padding: 25px;
 
+}
+
+.sidebar ul li{
+	margin: 2px;
 }
 
 
