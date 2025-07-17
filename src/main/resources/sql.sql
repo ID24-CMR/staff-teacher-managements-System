@@ -71,3 +71,32 @@ CREATE TABLE `salary` (
   KEY `depid` (`depid`),
   CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`depid`) REFERENCES `department` (`dep_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+
+
+insert into department values(4, "Computer Science / IT", "IT teacher or Tech Support", 380000, 2);
+insert into department values(5, "Language & Literature", "English or French Teacher", 350000, 2);
+insert into department values(6, "History / Geography", "Social Studies Teacher", 340000, 2);
+insert into department values(7, "Foriegn", "Language Teacher", 350000, 2);
+insert into department values(8, "Arts", "Art or Music Teacher", 320000, 2);
+insert into department values(9, "Physical Education", "P.E Teacher", 330000, 2);
+insert into department values(10, "Administration", "School Secretary", 300000, 2);
+insert into department values(11, "Principal's", "School Principal", 650000, 5);
+insert into department values(12, "Finance & Accounting", "School Accountant", 400000, 2);
+insert into department values(13, "HR / Personnel", "HR Assistant", 350000, 2);
+insert into department values(14, "Admission Office", "Admission Coordinator", 320000, 2);
+insert into department values(15, "Library", "Librarian", 330000, 2);
+insert into department values(16, "Counseling/Psychology", "School counselor", 450000, 2);
+insert into department values(17, "IT Support", "Tech Support Specialist", 350000, 2);
+insert into department values(18, "Cafeteria", "Food Service Worker", 250000, 0);
+insert into department values(19, "Security", "School Security Officer", 280000, 0);
+insert into department values(20, "Maintenance", "Maintenance Worker", 280000, 0);
+insert into department values(21, "Transportation", "School Bus Driver", 270000, 1);
+
+
+
+
+
+
+

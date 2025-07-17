@@ -19,9 +19,9 @@
     <div class="container my-5">
         <div class="card">
             <div class="card-body">
-                <div th:switch="{departs}" class="container my-5">
+                <div th:switch="${departs}" class="container my-5">
                     <p class="my-5">
-                        <a href="add/department" class="btn btn-primary"><i
+                        <a href="/department/show" class="btn btn-primary"><i
                             class="fas fa-user-plus ml-2"> Add Department</i></a>
                     </p>
                     <p class="my-5">
@@ -53,13 +53,13 @@
                                         <td th:text="${depart.description}"></td>
                                         <td th:text="${depart.salary}"></td>
                                         <td th:text="${depart.yexperience}"></td>
-                                        <td><a th:href="@{/department/view/{id}(id=${depart.id})}"
+                                        <td><a th:href="@{/department/view/{id}(id=${depart.dep_id})}"
                                             class="btn btn-success">
                                             <i class="fas fa-user ml-2"></i></a></td>
-                                        <td><a th:href="@{/department/edit/{id}(id=${depart.id})}"
+                                        <td><a th:href="@{/department/edit/{id}(id=${depart.dep_id})}"
                                             class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
                                         <td><a
-                                            th:href="@{/department/delete/{id}(id=${depart.id})}"
+                                            th:href="@{/department/delete/{id}(id=${depart.dep_id})}"
                                             class="btn btn-danger"><i class="fas fa-user-times ml-2"></i></a></td>
                                     </tr>
                                 </tbody>
