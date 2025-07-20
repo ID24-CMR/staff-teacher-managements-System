@@ -16,25 +16,34 @@ import javax.persistence.Table;
 @Table(name="leave")
 public class Leave {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long leaveId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long leaId;
 
-    @Column(name="date")
-    private Date date;
+    @Column(name="startDate")
+    private Date startDate;
+
+    @Column(name="endDate")
+    private Date endDate;
+
+    @Column(name ="reason")
+    private String reason;
+
+    @Column(name="empId", insertable = false, updatable = false)
+    private String empId;
 
     public Leave() {
     }
 
     public long getLeaveId() {
-        return leaveId;
+        return leaId;
     }
 
-    public void setLeaveId(long leaveId) {
-        this.leaveId = leaveId;
+    public void setLeaveId(long leaId) {
+        this.leaId = leaId;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public void setReason(String reason) {
@@ -45,8 +54,12 @@ public class Leave {
         this.employee = employee;
     }
 
-    public Date getDate() {
-        return date;
+    public void setEndDate(Date endDate){
+        this.endDate = endDate;
+    }
+
+    public Date getStartDate() {
+        return startDate;
     }
 
     public String getReason() {
@@ -57,8 +70,17 @@ public class Leave {
         return employee;
     }
 
-    @Column(name ="reason")
-    private String reason;
+    public Date getEndDate(){
+        return endDate;
+    }
+
+    public void setEmpId(String empId){
+        this.empId = empId;
+    }
+
+    public String getEmpId(){
+        return empId;
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="empId", referencedColumnName="empId")

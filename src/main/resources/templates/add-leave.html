@@ -3,9 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>add leave</title>
+    <title>Leaves</title>
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+<link rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+
 </head>
 <body>
-    add leave!!!!!
+    <div class="container my-5">
+    <h3> Add new Leave</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-12">
+
+                    <form action="#" th:action="@{/leave/add/leave}"
+                        th:object="${leaves}" method="post" id="leave">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="emp_id" class="col-form-label">Employee Id</label> <input
+                                    type="text" th:field="*{empId}" class="form-control" id="emp_id"
+                                    placeholder="Employee Id"> <span
+                                    th:if="${#fields.hasErrors('empId')}" th:errors="*{empId}"
+                                    class="text-danger"></span>
+                                    <span id="result"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="reason" class="col-form-label">Reason</label> <input
+                                    type="text" th:field="*{reason}" class="form-control" id="reason"
+                                    placeholder="Reason"> <span
+                                    th:if="${#fields.hasErrors('reason')}" th:errors="*{reason}"
+                                    class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group col-md-6">
+                                <label for="start-date" class="col-form-label">Start Date</label> <input
+                                    type="date" th:field="*{startDate}" class="form-control"
+                                    id="start-date" placeholder="Dept Salary"> <span
+                                    th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}"
+                                    class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="end-date" class="col-form-label">End Date</label> <input
+                                    type="date" th:field="*{endDate}" class="form-control"
+                                    id="end-date" placeholder="Dept Salary"> <span
+                                    th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}"
+                                    class="text-danger"></span>
+                            </div>
+                            
+                            <p>
+                            <div class="form-group col-md-6">
+                                <input type="submit" class="btn btn-primary" value="Add Leave">
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <a href="http://localhost:8080/leave/show/list"><input type="reset" class="btn btn-secondary" value="Cancel"></a>
+                            </div>
+
+                            <div class="form-group col-md-8"></div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/vemployee.js}" src="../static/js/vemployee.js">
+
+    </script>
 </body>
 </html>

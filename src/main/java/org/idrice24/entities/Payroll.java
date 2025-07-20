@@ -96,7 +96,7 @@ public class Payroll{
 	private Salary salary;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="leaveId", referencedColumnName = "leaveId")
+	@JoinColumn(name="leaId", referencedColumnName = "leaId")
 	private Leave leave;
 
 	@Column(name="date")
