@@ -19,9 +19,8 @@ public class Qualification {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long qualId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="empId", referencedColumnName = "empId")
-    private Employee employee;
+    @Column(name="empId")
+    private String empId;
 
     @Column(name="position")
     private String position;
@@ -40,12 +39,12 @@ public class Qualification {
         this.qualId = qualId;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public String getEmpId() {
+        return empId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmpId(String empId) {
+        this.empId = empId;
     }
 
     public String getPosition() {

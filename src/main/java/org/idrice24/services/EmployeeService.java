@@ -1,10 +1,7 @@
 package org.idrice24.services;
 
-import java.io.IOException;
-import java.nio.file.Path;
 
 import org.idrice24.entities.Employee;
-import org.springframework.web.multipart.MultipartFile;
 
 public interface EmployeeService {
     Iterable<Employee>  getAllEmployee();

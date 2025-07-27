@@ -29,8 +29,7 @@ public class LeaveController {
 
     @GetMapping("show")
     public String showLeave(Model model){
-        Leave leaves = new Leave();
-        model.addAttribute("leaves", leaves);
+        model.addAttribute("leaves", new Leave());
         return "add-leave";
     
     }
